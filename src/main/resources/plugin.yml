@@ -2,3 +2,7 @@ name: Carto
 version: 0.0.1
 author: cobblecracker
 main: io.github.cobblecracker.Carto.Main
+commands:
+  carto:
+    description: Example
+    usage: /<command> add

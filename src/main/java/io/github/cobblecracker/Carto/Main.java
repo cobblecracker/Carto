@@ -1,6 +1,7 @@
 package io.github.cobblecracker.Carto;
 
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -13,7 +14,7 @@ import org.bukkit.Material;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main extends JavaPlugin {
+public class Main extends JavaPlugin implements CommandExecutor {
     private static final String MAIN_COMMAND = "carto";
     private MapRegistry registry;
 
@@ -54,6 +55,7 @@ public class Main extends JavaPlugin {
         }
     }
 
+    @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase(MAIN_COMMAND)) {
             if (!(sender instanceof Player))
