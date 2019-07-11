@@ -21,7 +21,8 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         getLogger().info("Enabled");
         getCommand(MAIN_COMMAND).setExecutor(this);
-        registry = new MapRegistry(getDataFolder().toString());
+        this.
+        registry = new MapRegistry(getDataFolder());
     }
 
     @Override

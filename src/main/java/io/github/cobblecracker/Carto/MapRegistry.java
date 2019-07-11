@@ -13,9 +13,9 @@ import java.util.List;
 
 public class MapRegistry {
 
-    private String pluginFolder;
+    private File pluginFolder;
 
-    MapRegistry(String pluginFolder) {
+    MapRegistry(File pluginFolder) {
         this.pluginFolder = pluginFolder;
     }
 
@@ -39,7 +39,7 @@ public class MapRegistry {
 
     private List<MapRecord> readFile() {
         Gson gson = new Gson();
-        File file = new File(this.pluginFolder, "map_registry.json");
+        File file = new File(this.pluginFolder,  "map_registry.json");
         String encoded = null;
         try {
             encoded = FileUtils.readFileToString(file);
