@@ -41,13 +41,19 @@ public class MapRegistry {
         Gson gson = new Gson();
         File file = new File(this.pluginFolder,  "map_registry.json");
         String encoded = null;
-        try {
-            encoded = FileUtils.readFileToString(file);
-        } catch (FileNotFoundException e) {
-            return new ArrayList<MapRecord>();
+        if (file.exists()) {
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+
+                encoded = FileUtils.readFileToString(file);
+            } catch (FileNotFoundException e) {
+                return new ArrayList<MapRecord>();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return new ArrayList<MapRecord>();
+            }
+        } else {
             return new ArrayList<MapRecord>();
         }
         Type listType = new TypeToken<List<MapRecord>>(){}.getType();
